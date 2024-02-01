@@ -1,3 +1,5 @@
+import os
+
 """
 Question 1: An attacker may have access to the public key and cipher text, it is mathematically impossbible to decrypt due to the factorization problem.
 Question 2: The most commonly used method is trial division which entails checking whether n is divisible by any integer from 2 to sqrt(n). Why this is
@@ -90,5 +92,7 @@ def getPhi(n):
 
 if __name__ == "__main__":
     while(1):
+        os.system('cls')
         renderMenu()
-        input("\n Press any key to contiue. There is no exit. You will enjoy it.\n")
+        input("\n Press any key to continue. There is no exit. You will enjoy it.\n")
+
