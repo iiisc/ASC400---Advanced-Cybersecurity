@@ -6,6 +6,8 @@ Question 3: (lösa tillsammans https://www.symbolab.com/solver/modulo-calculator
 """
 
 def renderMenu():
+    """ Renders the menu for the application"""
+
     print("""     ▄████████    ▄████████    ▄████████          ███      ▄██████▄   ▄██████▄   ▄█       ▀█████████▄   ▄██████▄  ▀████    ▐████▀ 
     ███    ███   ███    ███   ███    ███      ▀█████████▄ ███    ███ ███    ███ ███         ███    ███ ███    ███   ███▌   ████▀  
     ███    ███   ███    █▀    ███    ███         ▀███▀▀██ ███    ███ ███    ███ ███         ███    ███ ███    ███    ███  ▐███    
@@ -20,19 +22,34 @@ def renderMenu():
     match uin:
         case "1":
             x = int(input("What number do you want to check?: "))
-            print(isPrime(x))
+            if (isPrime(x)):
+                print(f'{x} is a prime number')
+            else:
+                print(f'{x} is not a prime number')
+
         case "2":
             a = int(input("a: "))
             b = int(input("b: "))
-            print(getGCD(a, b))
+            gcd = getGCD(a, b)
+            print(f'GCD = {gcd[0]}. X = {gcd[1]}. Y = {gcd[2]}')
+
         case "3":
             n = int(input("n: "))
-            print(getPhi(n))
-        case "4":
-            print("func4")
+            phi = getPhi(n)
+            print(f'{len(phi)} positive integers smaller then {n} are relative prime to {n}.')
+            print(f'The numbers are: {phi}')
 
+        case "4":
+            integer = int(input("Integer: "))
+            modulus = int(input("Modulus: "))
+            modularInverse = getModularInverse(modulus, integer)
+            if (isinstance(modularInverse, int)):
+                print(f'The multiplicative inverse of integer {integer} (mod {modulus}) is {modularInverse}')
+            else:
+                print(f"No multiplicative inverse of integer {integer} (mod {modulus}) found.")
 
 def isPrime(a):
+    """ Checks if a numbers is a prime number. Returns bool"""
     if (a < 2):
         return False
     for i in range(2, a):
@@ -41,6 +58,7 @@ def isPrime(a):
     return True
 
 def getGCD(a, b):
+    """ Finds greatest common denominator for two numbers """
     if a == 0:
         return b, 0, 1
     gcd, x1, y1 = getGCD(b % a, a)
@@ -49,17 +67,20 @@ def getGCD(a, b):
     return gcd, x, y
 
 def isRelativePrime(a, b):
+    """ Checks if two numbers are relative prime to each other. Returns bool """
     if (getGCD(a, b)[0] == 1):
         return True
     return False
 
 def getModularInverse(n, b):
+    """ Calculates modular inverse. Returns int or string """
     gcd, x, y = getGCD(n,b)
     if (gcd == 1):
         return y % n
     return "None found"
 
 def getPhi(n):
+    """ Eulers totient phi. Returns list """
     list = []
     for i in range(1, n+1):
         if (isRelativePrime(i,n)):
@@ -70,3 +91,4 @@ def getPhi(n):
 if __name__ == "__main__":
     while(1):
         renderMenu()
+        input("\n Press any key to contiue. There is no exit, only more options. \n")
