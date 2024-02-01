@@ -91,4 +91,4 @@ def getPhi(n):
 if __name__ == "__main__":
     while(1):
         renderMenu()
-        input("\n Press any key to contiue. There is no exit, only more options. \n")
+        input("\n Press any key to contiue. There is no exit. You will enjoy it.\n")
