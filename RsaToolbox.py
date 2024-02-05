@@ -1,10 +1,15 @@
 import os
 
 """
-Question 1: An attacker may have access to the public key and cipher text, it is mathematically impossbible to decrypt due to the factorization problem.
-Question 2: The most commonly used method is trial division which entails checking whether n is divisible by any integer from 2 to sqrt(n). Why this is
-depends on redundancy, any factor greater than sqrt(n) would already have corresponding factor smaller than sqrt(n).
-Question 3: (lösa tillsammans https://www.symbolab.com/solver/modulo-calculator/15%5E%7B19%7D%20mod%2077?or=input)
+Question 1: 
+    An attacker may have access to the public key and cipher text, 
+    it is mathematically impossbible to decrypt due to the factorization problem.
+Question 2: 
+    The most commonly used method is trial division which entails checking whether n is divisible by any integer from 2 to sqrt(n). 
+    Why this is depends on redundancy, any factor greater than sqrt(n) would already have corresponding factor smaller than sqrt(n).
+Question 3: The RSA encryption algorithm is c=m^e mod n where c is the encrypted message, 
+    m is the message, e and n is the private key. 
+    In this case m=15 e=19 n=77 which gives c=15^19 mod 77 = 36
 """
 
 def renderMenu():
