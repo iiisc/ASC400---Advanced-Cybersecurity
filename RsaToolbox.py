@@ -9,7 +9,18 @@ Question 2:
     Why this is depends on redundancy, any factor greater than sqrt(n) would already have corresponding factor smaller than sqrt(n).
 Question 3: The RSA encryption algorithm is c=m^e mod n where c is the encrypted message, 
     m is the message, e and n is the private key. 
-    In this case m=15 e=19 n=77 which gives c=15^19 mod 77 = 36
+    In this case m=15 e=19 n=77 which gives c=15^19 mod 77 = 36. The complete calculation would be as follows:
+    
+    15^9 mod 77 => 
+    (15^2)^9 * 15 mod 77 
+    => ((((15^2 mod 77)^9) mod 77) * (15 mod 77)) mod 77
+    => ((((225 mod 77)^9) mod 77) * 15) ) mod 77
+    => (((((5041 mod 77)^4) mod 77) * 71) mod 77) * 15) mod 77
+    => ((((((1296 mod 77)^2) mod 77) * 71) mod 77) * 15) mod 77 
+    => ((((4096 mod 77) * 71) mod 77) * 15) mod 77
+    => ((1065 mod 77) * 15) mod 77
+    => 960 mod 77
+    = 36
 """
 
 def renderMenu():
